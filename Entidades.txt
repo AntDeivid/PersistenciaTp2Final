@@ -1,0 +1,47 @@
+Usuario {
+	id: uuid,
+	nome: string,
+	email: string,
+	celular: string,
+	cpf: string unique
+}
+
+Veiculo {
+	id: uuid,
+	modelo: string,
+	marca: string,
+	placa: string unique,
+	ano: date
+}
+
+Contrato {
+	id: uuid,
+	usuario_id: uuid fk,
+	veiculo_id: uuid fk,
+	pagamento_id: uuid fk,
+	data_inicio: date,
+	data_fim: date
+}
+
+Pagamento {
+	id: uuid,
+	valor: double,
+	forma_pagamento: string,
+	vencimento: date,
+	pago: boolean
+}
+
+Manutenção {
+	id: uuid,
+	data: date,
+	tipo_manutencao: int,
+	custo: double,
+	observacoes: string
+}
+
+VeiculoManutencao {
+    id: uuid,
+    veiculo_id: uuid fk,
+    manutencao_id: uuid fk
+}
+
